@@ -189,7 +189,7 @@ $("#search").click(() => {
    $(".sidebar").show();
    $("#boxinfo").hide();
   input=document.getElementById('address').value;
-  url1='http://api.mapbox.com/geocoding/v5/mapbox.places/' + input + '.json?access_token=pk.eyJ1IjoicmVwYXJvIiwiYSI6ImNqdGtlaW5ubzAyNzk0M3BoaWtjNTRkcG0ifQ.zIoid_0qjvLcr2fTtyxhxQ'
+  url1='https://api.mapbox.com/geocoding/v5/mapbox.places/' + input + '.json?access_token=pk.eyJ1IjoicmVwYXJvIiwiYSI6ImNqdGtlaW5ubzAyNzk0M3BoaWtjNTRkcG0ifQ.zIoid_0qjvLcr2fTtyxhxQ'
   $.ajax(url1).done(function(res) {
     jsondata1=res;
     lng=jsondata1.features[0].geometry.coordinates[0];
