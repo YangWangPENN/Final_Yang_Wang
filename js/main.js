@@ -208,42 +208,107 @@ function lowerCaseAllWordsExceptFirstLetters(string) {
     });
 }
 
-//Show amenity info when clicked
+//Define initial state of the optimized route
+var state = {
+  count: 0,
+  markers: [],
+  line: undefined,
+}
+
+//Show amenity info and the optimized routewhen clicked
+var lng0;
+var lat0;
+var url0;
+
 var eachFeatureFunction0 = function(layer) {
   layer.on('click', function (event) {
+    if (typeof state.line !== 'undefined') {
+      map.removeLayer(state.line);
+    };
       $("#boxinfo").show();
       $('#info').show();
       var schoolName=upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(layer.feature.properties.FACIL_NAME.toLowerCase()));
       var level=upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(layer.feature.properties.GRADE_LEVEL.toLowerCase()));
       $('#schools').text("Name: " + schoolName + "; Level:" + level);
+      lng0=layer.feature.geometry.coordinates[0];
+      lat0=layer.feature.geometry.coordinates[1];
+      url0 = "https://api.mapbox.com/optimized-trips/v1/mapbox/walking/" + lng + "," + lat + ";" + lng0 + "," + lat0 + "?access_token=pk.eyJ1IjoicmVwYXJvIiwiYSI6ImNqdGtlaW5ubzAyNzk0M3BoaWtjNTRkcG0ifQ.zIoid_0qjvLcr2fTtyxhxQ";
+      $.ajax({
+        url: url0,
+        success: function(res) {
+          var latlngs = decode(res.trips[0].geometry);
+          state.line=L.polyline(latlngs, {color: '#a9cce3'}).addTo(map);
+        }
+      });
     }
 )};
 
+
+
 var eachFeatureFunction2 = function(layer) {
   layer.on('click', function (event) {
+    if (typeof state.line !== 'undefined') {
+      map.removeLayer(state.line);
+    };
       $("#boxinfo").show();
       $('#info').show();
       var hospitalName=upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(layer.feature.properties.FACILITY_N.toLowerCase()));
       $('#hospitals').text("Name: " + hospitalName + "   " + layer.feature.properties.FACILITY_U);
+      lng0=layer.feature.geometry.coordinates[0];
+      lat0=layer.feature.geometry.coordinates[1];
+      url0 = "https://api.mapbox.com/optimized-trips/v1/mapbox/walking/" + lng + "," + lat + ";" + lng0 + "," + lat0 + "?access_token=pk.eyJ1IjoicmVwYXJvIiwiYSI6ImNqdGtlaW5ubzAyNzk0M3BoaWtjNTRkcG0ifQ.zIoid_0qjvLcr2fTtyxhxQ";
+      $.ajax({
+        url: url0,
+        success: function(res) {
+          var latlngs = decode(res.trips[0].geometry);
+          state.line=L.polyline(latlngs, {color: '#a9cce3'}).addTo(map);
+        }
+      });
     }
 )};
 
 var eachFeatureFunction3 = function(layer) {
   layer.on('click', function (event) {
+    if (typeof state.line !== 'undefined') {
+      map.removeLayer(state.line);
+    };
       $("#boxinfo").show();
       $('#info').show();
       var farmerName=upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(layer.feature.properties.Name.toLowerCase()));
       $('#farmermarkets').text("Name: " + farmerName + "; Time: " + layer.feature.properties.TIME);
+      lng0=layer.feature.geometry.coordinates[0];
+      lat0=layer.feature.geometry.coordinates[1];
+      url0 = "https://api.mapbox.com/optimized-trips/v1/mapbox/walking/" + lng + "," + lat + ";" + lng0 + "," + lat0 + "?access_token=pk.eyJ1IjoicmVwYXJvIiwiYSI6ImNqdGtlaW5ubzAyNzk0M3BoaWtjNTRkcG0ifQ.zIoid_0qjvLcr2fTtyxhxQ";
+      $.ajax({
+        url: url0,
+        success: function(res) {
+          var latlngs = decode(res.trips[0].geometry);
+          state.line=L.polyline(latlngs, {color: '#a9cce3'}).addTo(map);
+        }
+      });
     }
 )};
 
 var eachFeatureFunction4 = function(layer) {
   layer.on('click', function (event) {
+    if (typeof state.line !== 'undefined') {
+      map.removeLayer(state.line);
+    };
       $("#boxinfo").show();
       $('#info').show();
       var stationName=upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(layer.feature.properties.STATION.toLowerCase()));
       var lineName=upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(layer.feature.properties.LINE.toLowerCase()));
       $('#railstations').text("Name: " + stationName + "; Line: " + lineName);
+      lng0=layer.feature.geometry.coordinates[0];
+      lat0=layer.feature.geometry.coordinates[1];
+      url0 = "https://api.mapbox.com/optimized-trips/v1/mapbox/walking/" + lng + "," + lat + ";" + lng0 + "," + lat0 + "?access_token=pk.eyJ1IjoicmVwYXJvIiwiYSI6ImNqdGtlaW5ubzAyNzk0M3BoaWtjNTRkcG0ifQ.zIoid_0qjvLcr2fTtyxhxQ";
+      $.ajax({
+        url: url0,
+        success: function(res) {
+          var latlngs = decode(res.trips[0].geometry);
+          state.line=L.polyline(latlngs, {color: '#a9cce3'}).addTo(map);
+        }
+      });
     }
 )};
 
