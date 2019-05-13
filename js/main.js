@@ -227,6 +227,7 @@ var eachFeatureFunction0 = function(layer) {
     };
       $("#boxinfo").show();
       $('#info').show();
+      $('#schools').show();
       var schoolName=upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(layer.feature.properties.FACIL_NAME.toLowerCase()));
       var level=upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(layer.feature.properties.GRADE_LEVEL.toLowerCase()));
       $('#schools').text("Name: " + schoolName + "; Level:" + level);
@@ -252,6 +253,7 @@ var eachFeatureFunction2 = function(layer) {
     };
       $("#boxinfo").show();
       $('#info').show();
+      $('#hospitals').show();
       var hospitalName=upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(layer.feature.properties.FACILITY_N.toLowerCase()));
       $('#hospitals').text("Name: " + hospitalName + "   " + layer.feature.properties.FACILITY_U);
       lng0=layer.feature.geometry.coordinates[0];
@@ -274,6 +276,7 @@ var eachFeatureFunction3 = function(layer) {
     };
       $("#boxinfo").show();
       $('#info').show();
+      $('#farmermarkets').show();
       var farmerName=upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(layer.feature.properties.Name.toLowerCase()));
       $('#farmermarkets').text("Name: " + farmerName + "; Time: " + layer.feature.properties.TIME);
       lng0=layer.feature.geometry.coordinates[0];
@@ -296,6 +299,7 @@ var eachFeatureFunction4 = function(layer) {
     };
       $("#boxinfo").show();
       $('#info').show();
+      $('#railstations').show();
       var stationName=upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(layer.feature.properties.STATION.toLowerCase()));
       var lineName=upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(layer.feature.properties.LINE.toLowerCase()));
       $('#railstations').text("Name: " + stationName + "; Line: " + lineName);
@@ -316,6 +320,10 @@ var eachFeatureFunction4 = function(layer) {
 $("#reset").click(()=> {
   $(".sidebar").hide();
   document.getElementById('address').value = '';
+  $('#schools').hide();
+  $('#hospitals').hide();
+  $('#farmermarkets').hide();
+  $('#railstations').hide();
   map.removeLayer(markerLayer);
   map.removeLayer(state.line);
 });
