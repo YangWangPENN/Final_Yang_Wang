@@ -170,9 +170,7 @@ $(document).ready(function() {
 var input;
 var result;
 var url1;
-var url2;
 var jsondata1;
-var jsondata2;
 var lng;
 var lat;
 
@@ -199,12 +197,25 @@ $("#search").click(() => {
   })
 });
 
+//Lowercase the texts except for the first letter
+function upperCaseFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function lowerCaseAllWordsExceptFirstLetters(string) {
+    return string.replace(/\w\S*/g, function (word) {
+        return word.charAt(0) + word.slice(1).toLowerCase();
+    });
+}
+
 //Show amenity info when clicked
 var eachFeatureFunction0 = function(layer) {
   layer.on('click', function (event) {
       $("#boxinfo").show();
       $('#info').show();
-      $('#schools').text("Name: " + layer.feature.properties.FACIL_NAME + "; Level:" + layer.feature.properties.GRADE_LEVEL);
+      var schoolName=upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(layer.feature.properties.FACIL_NAME.toLowerCase()));
+      var level=upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(layer.feature.properties.GRADE_LEVEL.toLowerCase()));
+      $('#schools').text("Name: " + schoolName + "; Level:" + level);
     }
 )};
 
@@ -212,7 +223,8 @@ var eachFeatureFunction2 = function(layer) {
   layer.on('click', function (event) {
       $("#boxinfo").show();
       $('#info').show();
-      $('#hospitals').text("Name: " + layer.feature.properties.FACILITY_N + "   " + layer.feature.properties.FACILITY_U);
+      var hospitalName=upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(layer.feature.properties.FACILITY_N.toLowerCase()));
+      $('#hospitals').text("Name: " + hospitalName + "   " + layer.feature.properties.FACILITY_U);
     }
 )};
 
@@ -220,7 +232,8 @@ var eachFeatureFunction3 = function(layer) {
   layer.on('click', function (event) {
       $("#boxinfo").show();
       $('#info').show();
-      $('#farmermarkets').text("Name: " + layer.feature.properties.NAME + "; Time: " + layer.feature.properties.TIME);
+      var farmerName=upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(layer.feature.properties.Name.toLowerCase()));
+      $('#farmermarkets').text("Name: " + farmerName + "; Time: " + layer.feature.properties.TIME);
     }
 )};
 
@@ -228,7 +241,9 @@ var eachFeatureFunction4 = function(layer) {
   layer.on('click', function (event) {
       $("#boxinfo").show();
       $('#info').show();
-      $('#railstations').text("Name: " + layer.feature.properties.STATION + "; Line: " + layer.feature.properties.LINE);
+      var stationName=upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(layer.feature.properties.STATION.toLowerCase()));
+      var lineName=upperCaseFirstLetter(lowerCaseAllWordsExceptFirstLetters(layer.feature.properties.LINE.toLowerCase()));
+      $('#railstations').text("Name: " + stationName + "; Line: " + lineName);
     }
 )};
 
