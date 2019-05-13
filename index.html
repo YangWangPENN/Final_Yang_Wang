@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- CSS Imports -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css" integrity="sha256-YR4HrDE479EpYZgeTkQfgVJq08+277UXxMLbi/YP69o=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css" />
+    </head>
+  <body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+    <div id="info">
+        <p id="amenitiesParagraph">Click on the icons on the map to check the information of nearby amenities!</p>
+        <div id="boxinfo">
+          <p id="amenities">AMENITIES</p>
+
+          <div class="box"></div>
+          <div id="schoolicon">
+            <img src="Icon0.png" alt="Icon0" width="36" height=auto>
+          </div>
+
+          <p id="schools"></p>
+
+          <div id="hospitalicon">
+            <img src="Icon2.png" alt="Icon2" width="40" height=auto>
+          </div>
+          <p id="hospitals"></p>
+
+          <div id="farmericon">
+            <img src="Icon3.png" alt="Icon3" width="36" height=auto>
+          </div>
+          <p id="farmermarkets"></p>
+
+          <div id="railicon">
+            <img src="Icon4.png" alt="Icon4" width="42" height=auto>
+          </div>
+          <p id="railstations"></p>
+
+      </div>
+
+      </div>
+    </div>
+
+    <!-- Top bar -->
+    <div class="topbar">
+      <div id="logo">
+        <img src="icon1.png" alt="icon1" width="60" height=auto>
+      </div>
+      <p id="name">W.Y. REAl ESTATE INVESTORS</p>
+      <p id="text-topbar">Find your target property by address: <input id='address'></input></p>
+      <button id="search"> Search </button>
+      <button id="reset"> Reset </button>
+    </div>
+
+    <!-- Map -->
+    <div class="map" id="map" ></div>
+
+    <!-- Legend -->
+    <div class="legend">
+        <h2>Legend</h2>
+        <div id="legend0">
+          <div id="circle1"></div>
+          <div id="circle2"></div>
+          <div id="circle3"></div>
+        </div>
+        <div id="legend2">
+          <div id="hospitallegend">
+            <img src="Icon2.png" alt="Icon2" width="25" height=auto>
+          </div>
+        </div>
+        <div id="legend3">
+          <div id="farmerlegend">
+            <img src="Icon3.png" alt="Icon3" width="23" height=auto>
+          </div>
+        </div>
+        <div id="legend4">
+          <div id="raillegend">
+            <img src="Icon4.png" alt="Icon4" width="25" height=auto>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="legendText">
+          <div id="text1">Private School</div>
+          <div id="text2">District School</div>
+          <div id="text3">Charter School</div>
+          <div id="text4">Hospitals</div>
+          <div id="text5">Farmers Markets</div>
+          <div id="text6">Rail Stations</div>
+      </div>
+
+      <div class="legendBackground">
+      </div>
+
+    <!-- Javascript Imports -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js" integrity="sha256-6BZRSENq3kxI4YYBDqJ23xg0r1GwTHEpvp3okdaIqBw=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js" integrity="sha256-O4179En8zabOlPYBNvGp8cF0uh0vnSZpW4Q6Ul1h+8c=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
