@@ -317,4 +317,5 @@ $("#reset").click(()=> {
   $(".sidebar").hide();
   document.getElementById('address').value = '';
   map.removeLayer(markerLayer);
+  map.removeLayer(state.line);
 });
